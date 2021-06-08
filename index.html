@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lecto-escritura con Javascript</title>
 </head>
 <body>
     <input type="file" id="file-input" />
-<h3>Contenido del archivo:</h3>
-<pre id="contenido-archivo"></pre>
+	<h3>Contenido del archivo:</h3>
+	<textarea id="contenido-archivo"></textarea> <br />
+	
+	<h3>Guardar el archivo:</h3> <br />
+	<button onclick="savefile()">Guardar</button>
+	<p id="dlink">Clic en el  boton para generar el link de descarga.</p>
+	
 </body>
+<link rel="stylesheet" href="styles.css">
 <script src="scripts.js"></script>
 </html>

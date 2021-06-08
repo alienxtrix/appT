@@ -18,3 +18,10 @@ function leerArchivo(e) {
   
   document.getElementById('file-input')
     .addEventListener('change', leerArchivo, false);
+	
+	function savefile(){
+		var content = document.getElementById('contenido-archivo').value;
+		uriContent = "data:application/octet-stream," + encodeURIComponent(content);
+		document.getElementById("dlink").innerHTML = "<a href=" + uriContent + " download=\"NuevoArchivo.txt\">Click acá para guardar el archivo</a>";
+		alert("Haga clic en el link azul para guaradr el archivo");
+	}
