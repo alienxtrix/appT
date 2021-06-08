@@ -1,9 +1,24 @@
-	var resultado;
+	var resultado;//variable que guarda todos los textos
+	var guardados = [];//array que guarda todos los nombres de los archivos ya guardados
+	var tama;//var que guarda el tamaño de guardados para evitar ciclos infinitos
+	var fileName;// nombre del archivo a leer
+	
 function leerArchivo(e) {
     var archivo = e.target.files[0];
     if (!archivo) {
       return;
     }
+	fileName = e.target.files[0].name; // leer nombre del archivo a guardar
+	console.log("el nombre del archivo es: ");
+	console.log(fileName);
+	tama = guardados.length;//como el for incrementa guardados.length,lo ponemos en tama
+	for (var i=0; i<=tama; i++){//mirar si el nombre del archivo está guardado en el array de guardados
+		if(guardados[i] == fileName){ return; }
+	}		
+	for (var i=0; i<=tama; i++){//sino está ya, guardar el nombre del archivo a leer
+		guardados.push(e.target.files[0].name);	
+	}
+	
     var lector = new FileReader();
     lector.onload = function(e) {
       var contenido = e.target.result;
