@@ -1,7 +1,15 @@
 	var resultado;//variable que guarda todos los textos
+	
 	var guardados = [];//array que guarda todos los nombres de los archivos ya guardados
+	var response = localStorage.getItem("guardados"); //recuperar lo de guardados
+	if( response != null){
+		guardados = JSON.parse(response);
+	}
+	
 	var tama;//var que guarda el tamaño de guardados para evitar ciclos infinitos
 	var fileName;// nombre del archivo a leer
+	
+	//lovalStore.clear() // quitar lo guardado en local storage
 	
 function leerArchivo(e) {
     var archivo = e.target.files[0];
@@ -16,7 +24,8 @@ function leerArchivo(e) {
 		if(guardados[i] == fileName){ return; }
 	}		
 	for (var i=0; i<=tama; i++){//sino está ya, guardar el nombre del archivo a leer
-		guardados.push(e.target.files[0].name);	
+		guardados.push(fileName);	
+		localStorage.setItem("guardados", JSON.stringify(guardados));
 	}
 	
     var lector = new FileReader();
@@ -39,6 +48,12 @@ document.getElementById('file-input').addEventListener('change', leerArchivo, fa
 function savefile(){
 	var content = document.getElementById('contenido-archivo').value;
 	uriContent = "data:application/octet-stream," + encodeURIComponent(content);
-	document.getElementById("dlink").innerHTML = "<a href=" + uriContent + " download=\"NuevoArchivo.txt\">Click acá para guardar el archivo</a>";
-	alert("Haga clic en el link azul para guaradr el archivo");
+	
+	var a = document.createElement("a");
+	a.href = uriContent;
+	a.download = 'NuevoArchivo.txt';
+	a.dispatchEvent(new MouseEvent("click"));
 }
+
+
+
