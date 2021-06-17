@@ -32,22 +32,39 @@ function leerArchivo(e) {
     var lector = new FileReader();
     lector.onload = function (e) {
         var contenido = e.target.result;
-	    if(resultado == null) {
+	    /*(resultado == null) {
 		  resultado = contenido;
 		}else {
 			resultado = resultado + contenido;
-		}
-		console.log(resultado);
+		}*/
 
+		var filas = lector.result.split("\n");
+    for(var i in filas) {
+       var columnas = filas[i].split(",");
+       console.log(columnas);
+    }
+
+		//console.log(resultado);
+
+		/*char[] aCaracteres;
+		char[] aCaracteres = resultado.toCharArray();*/
+
+		//str = resultado.split('');
+		//str = Array.from(resultado);
+		//str = Array(resultado);
+		//str = [resultado];
+		
+		//console.log(str);
+		
 		/*for(resultado){
 
 		}*/
-		fecha = resultado.substring(0, 8);
+		/*fecha = resultado.substring(0, 8);
 		hora = resultado.substring(8, 12);
 		medio = resultado.substring(12, 13);
 		console.log(fecha);
 		console.log(hora);
-		console.log(medio);
+		console.log(medio);*/
       	//mostrarContenido(resultado);
     };
     lector.readAsText(archivo); 
