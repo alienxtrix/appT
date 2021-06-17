@@ -13,6 +13,7 @@
 	
 function leerArchivo(e) {
     var archivo = e.target.files[0];
+
     if (!archivo) {
       return;
     }
@@ -29,13 +30,30 @@ function leerArchivo(e) {
 	}
 	
     var lector = new FileReader();
-    lector.onload = function(e) {
-      var contenido = e.target.result;
-	  if( resultado == null) {resultado = contenido;}
-	  else {resultado = resultado + contenido;}
-      mostrarContenido(resultado);
+    lector.onload = function (e) {
+        var contenido = e.target.result;
+	    if(resultado == null) {
+		  resultado = contenido;
+		}else {
+			resultado = resultado + contenido;
+		}
+		console.log(resultado);
+
+		/*for(resultado){
+
+		}*/
+		fecha = resultado.substring(0, 8);
+		hora = resultado.substring(8, 12);
+		medio = resultado.substring(12, 13);
+		console.log(fecha);
+		console.log(hora);
+		console.log(medio);
+      	//mostrarContenido(resultado);
     };
     lector.readAsText(archivo); 
+
+	/*var men = 'holahola';
+	return men;*/
 }
   
 function mostrarContenido(resultado) {
@@ -56,4 +74,21 @@ function savefile(){
 }
 
 
+/*function onLoad() {
+	console.log("holap100");
+	var result = reader.result;
+	console.log(result);
+}
+function generarInfo() {
+	console.log("holap89");
 
+	//file = fopen(getScriptPath("/var/www/html/appT/data/S151000007.15101s02.10.20201205.teleton.0830"), 0);
+	
+	var hey = leerArchivo();
+	console.log(hey);
+
+	var cool = onLoadHandler();
+	console.log(cool);
+};
+
+generarInfo()*/
