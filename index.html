@@ -394,25 +394,28 @@
 
 <body>
     <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'cargaArchivo')">Carga de archivos</button>
         <button class="tablinks" onclick="openTab(event, 'vistaPrincipal')">Home</button>
+    </div>
+
+    <div id="cargaArchivo" class="tabcontent">
+        <input type="file" id="file-input" />
+        <h3>Contenido del archivo:</h3>
+        <textarea id="contenido-archivo"></textarea> <br />
+
+        <h3>Guardar el archivo:</h3> <br />
+        <button onclick="savefile()">Guardar</button>
     </div>
 
     <div id="vistaPrincipal" class="tabcontent">
         <!--<button onclick="generarInfo()">Generar información</button>-->
-
-        <input type="file" id="file-input" />
-        <!--<h3>Contenido del archivo:</h3>
-        <textarea id="contenido-archivo"></textarea> <br />
-
-        <h3>Guardar el archivo:</h3> <br />
-        <button onclick="savefile()">Guardar</button>-->
-
+        
         <button type="button" class="collapsible">Importes</button>
         <div class="content">
             <div class="card">
                 <div class="container" id="sucursal">
                     <h4><b>Sucursal</b></h4>
-                    <p>$1000</p>
+                    <p id="impoSucursal"></p>
                 </div>
             </div>
 

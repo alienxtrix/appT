@@ -32,16 +32,56 @@ function leerArchivo(e) {
     var lector = new FileReader();
     lector.onload = function (e) {
         var contenido = e.target.result;
-	    /*(resultado == null) {
+	    if(resultado == null) {
 		  resultado = contenido;
 		}else {
 			resultado = resultado + contenido;
-		}*/
+		}
+		console.log(resultado);
 
 		var filas = lector.result.split("\n");
+		console.log(filas);
     for(var i in filas) {
        var columnas = filas[i].split(",");
        console.log(columnas);
+
+	   medio = columnas[0].substring(12,13);
+	   console.log(medio);
+	   importe = columnas[0].substring(33,45);
+	   console.log(importe);
+		//impo = importe.slice(length-1)+"."
+		switch (medio) {
+			case '1':
+				document.getElementById("impoSucursal").innerHTML = "$"+importe;
+				break;
+			case '2':
+				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				break;
+			case '3':
+				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				break;
+			case '4':
+				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				break;
+			case '5':
+				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				break;
+			case '6':
+				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				break;
+			case '7':
+				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				break;
+			case '8':
+				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				break;
+			case '9':
+				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				break;
+			default:
+				break;
+		}
+		
     }
 
 		//console.log(resultado);
@@ -65,7 +105,8 @@ function leerArchivo(e) {
 		console.log(fecha);
 		console.log(hora);
 		console.log(medio);*/
-      	//mostrarContenido(resultado);
+      	
+		mostrarContenido(resultado);
     };
     lector.readAsText(archivo); 
 
