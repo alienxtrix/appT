@@ -32,88 +32,144 @@ function leerArchivo(e) {
     var lector = new FileReader();
     lector.onload = function (e) {
         var contenido = e.target.result;
+
 	    if(resultado == null) {
 		  resultado = contenido;
 		}else {
 			resultado = resultado + contenido;
 		}
-		console.log(resultado);
 
-		var filas = lector.result.split("\n");
-		console.log(filas);
-    for(var i in filas) {
-       var columnas = filas[i].split(",");
-       console.log(columnas);
+		/*var filas = lector.result.split("\n");
 
-	   medio = columnas[0].substring(12,13);
-	   console.log(medio);
-	   importe = columnas[0].substring(33,45);
-	   console.log(importe);
-		//impo = importe.slice(length-1)+"."
+		var totalSucursal = 0;
+		var totalCodiOtBan = 0;
+		var totalBnet = 0;
+		var totalCat = 0;
+		var totalBoteo = 0;
+		var totalAlcancias = 0;
+		var totalCodiCiti = 0;
+
+		for(var i in filas) {
+			var columnas = filas[i].split(",");
+			var medio    = columnas[0].substring(12,13);
+			var importe  = columnas[0].substring(33,45);
+			var impo     = importe.substring(0, 10) + "." + importe.substring(10, importe.length);
+
+			//num = parseFloat(impo).toFixed(2);
+			//num = Number(impo);
+
+			switch (medio) {
+				case '1':
+					console.log(impo);
+					totalSucursal += parseFloat(impo);
+					console.log(totalSucursal);
+					document.getElementById("impoSucursal").innerHTML = "$"+totalSucursal.toFixed(2);
+					break;
+				case '2':
+					totalCat += parseFloat(impo);
+					//console.log(totalCat);
+					document.getElementById("impoCat").innerHTML = "$"+totalCat.toFixed(2);
+					break;
+				case '3':
+					break;
+				case '4':
+					totalBnet += parseFloat(impo);
+					//console.log(totalBnet);
+					document.getElementById("impoBnet").innerHTML = "$"+totalBnet;
+					break;
+				case '5':
+					break;
+				case '6':
+					totalBoteo += parseFloat(impo);
+					//console.log(totalBoteo);
+					document.getElementById("impoBoteo").innerHTML = "$"+totalBoteo.toFixed(2);
+					break;
+				case '7':
+					totalAlcancias += parseFloat(impo);
+					//console.log(totalAlcancias);
+					document.getElementById("impoAlcancias").innerHTML = "$"+totalAlcancias.toFixed(2);
+					break;
+				case '8':
+					totalCodiOtBan += parseFloat(impo);
+					//console.log(totalCodiOtBan);
+					document.getElementById("impoCodiOtBan").innerHTML = "$"+totalCodiOtBan;
+					break;
+				case '9':
+					totalCodiCiti += parseFloat(impo);
+					//console.log(totalCodiCiti);
+					document.getElementById("impoCodiCiti").innerHTML = "$"+totalCodiCiti;
+					break;
+				default:
+					break;
+			}
+		}*/
+
+		mostrarContenido(resultado);
+		mostrarHome(resultado);
+	};
+
+    lector.readAsText(archivo); 
+}
+
+function mostrarHome(resultado) {
+	var filas = resultado.split("\n");
+
+	var totalSucursal = 0;
+	var totalCodiOtBan = 0;
+	var totalBnet = 0;
+	var totalCat = 0;
+	var totalBoteo = 0;
+	var totalAlcancias = 0;
+	var totalCodiCiti = 0;
+
+	for(var i in filas) {
+		var columnas = filas[i].split(",");
+		var medio    = columnas[0].substring(12,13);
+		var importe  = columnas[0].substring(33,45);
+		var impo     = importe.substring(0, 10) + "." + importe.substring(10, importe.length);
+
+		//num = parseFloat(impo).toFixed(2);
+		//num = Number(impo);
+
 		switch (medio) {
 			case '1':
-				document.getElementById("impoSucursal").innerHTML = "$"+importe;
+				totalSucursal += parseFloat(impo);
+				document.getElementById("impoSucursal").innerHTML = "$"+totalSucursal.toFixed(2);
 				break;
 			case '2':
-				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				totalCat += parseFloat(impo);
+				document.getElementById("impoCat").innerHTML = "$"+totalCat.toFixed(2);
 				break;
 			case '3':
-				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
 				break;
 			case '4':
-				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				totalBnet += parseFloat(impo);
+				document.getElementById("impoBnet").innerHTML = "$"+totalBnet;
 				break;
 			case '5':
-				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
 				break;
 			case '6':
-				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				totalBoteo += parseFloat(impo);
+				document.getElementById("impoBoteo").innerHTML = "$"+totalBoteo.toFixed(2);
 				break;
 			case '7':
-				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				totalAlcancias += parseFloat(impo);
+				document.getElementById("impoAlcancias").innerHTML = "$"+totalAlcancias.toFixed(2);
 				break;
 			case '8':
-				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				totalCodiOtBan += parseFloat(impo);
+				document.getElementById("impoCodiOtBan").innerHTML = "$"+totalCodiOtBan;
 				break;
 			case '9':
-				//document.getElementById("cantSucursal").innerHTML = "$"+medio;
+				totalCodiCiti += parseFloat(impo);
+				document.getElementById("impoCodiCiti").innerHTML = "$"+totalCodiCiti;
 				break;
 			default:
 				break;
 		}
-		
-    }
-
-		//console.log(resultado);
-
-		/*char[] aCaracteres;
-		char[] aCaracteres = resultado.toCharArray();*/
-
-		//str = resultado.split('');
-		//str = Array.from(resultado);
-		//str = Array(resultado);
-		//str = [resultado];
-		
-		//console.log(str);
-		
-		/*for(resultado){
-
-		}*/
-		/*fecha = resultado.substring(0, 8);
-		hora = resultado.substring(8, 12);
-		medio = resultado.substring(12, 13);
-		console.log(fecha);
-		console.log(hora);
-		console.log(medio);*/
-      	
-		mostrarContenido(resultado);
-    };
-    lector.readAsText(archivo); 
-
-	/*var men = 'holahola';
-	return men;*/
+	}
 }
-  
+
 function mostrarContenido(resultado) {
     var elemento = document.getElementById('contenido-archivo');
     elemento.innerHTML = resultado;
