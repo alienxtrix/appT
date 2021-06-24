@@ -144,7 +144,7 @@ function mostrarHome(resultado) {
 				break;
 			case '4':
 				totalBnet += parseFloat(impo);
-				document.getElementById("impoBnet").innerHTML = "$"+totalBnet;
+				document.getElementById("impoBnet").innerHTML = "$"+totalBnet.toFixed(2);
 				break;
 			case '5':
 				break;
@@ -158,11 +158,11 @@ function mostrarHome(resultado) {
 				break;
 			case '8':
 				totalCodiOtBan += parseFloat(impo);
-				document.getElementById("impoCodiOtBan").innerHTML = "$"+totalCodiOtBan;
+				document.getElementById("impoCodiOtBan").innerHTML = "$"+totalCodiOtBan.toFixed(2);
 				break;
 			case '9':
 				totalCodiCiti += parseFloat(impo);
-				document.getElementById("impoCodiCiti").innerHTML = "$"+totalCodiCiti;
+				document.getElementById("impoCodiCiti").innerHTML = "$"+totalCodiCiti.toFixed(2);
 				break;
 			default:
 				break;
