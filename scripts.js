@@ -122,52 +122,77 @@ function mostrarHome(resultado) {
 	var totalAlcancias = 0;
 	var totalCodiCiti = 0;
 
+	var totalDonatSucursal = 1;
+	var totalDonatCat = 1;
+	var totalDonatBnet = 1;
+	var totalDonatBoteo = 1;
+	var totalDonatAlcancias = 1;
+	var totalDonatCodiOtBan = 1;
+	var totalDonatCodiciti = 1;
+
 	for(var i in filas) {
 		var columnas = filas[i].split(",");
 		var medio    = columnas[0].substring(12,13);
 		var importe  = columnas[0].substring(33,45);
 		var impo     = importe.substring(0, 10) + "." + importe.substring(10, importe.length);
 
-		//num = parseFloat(impo).toFixed(2);
-		//num = Number(impo);
-
 		switch (medio) {
 			case '1':
 				totalSucursal += parseFloat(impo);
 				document.getElementById("impoSucursal").innerHTML = "$"+totalSucursal.toFixed(2);
+				document.getElementById("donatSucursal").innerHTML = totalDonatSucursal;
+				totalDonatSucursal++;
 				break;
 			case '2':
 				totalCat += parseFloat(impo);
 				document.getElementById("impoCat").innerHTML = "$"+totalCat.toFixed(2);
+				document.getElementById("donatCat").innerHTML = totalDonatCat;
+				totalDonatCat++;
 				break;
 			case '3':
 				break;
 			case '4':
 				totalBnet += parseFloat(impo);
 				document.getElementById("impoBnet").innerHTML = "$"+totalBnet.toFixed(2);
+				document.getElementById("donatBnet").innerHTML = totalDonatBnet;
+				totalDonatBnet++;
 				break;
 			case '5':
 				break;
 			case '6':
 				totalBoteo += parseFloat(impo);
 				document.getElementById("impoBoteo").innerHTML = "$"+totalBoteo.toFixed(2);
+				document.getElementById("donatBoteo").innerHTML = totalDonatBoteo;
+				totalDonatBoteo++;
 				break;
 			case '7':
 				totalAlcancias += parseFloat(impo);
 				document.getElementById("impoAlcancias").innerHTML = "$"+totalAlcancias.toFixed(2);
+				document.getElementById("donatAlcancias").innerHTML = totalDonatAlcancias;
+				totalDonatAlcancias++;
 				break;
 			case '8':
 				totalCodiOtBan += parseFloat(impo);
 				document.getElementById("impoCodiOtBan").innerHTML = "$"+totalCodiOtBan.toFixed(2);
+				document.getElementById("donatCodiOtBan").innerHTML = totalDonatCodiOtBan;
+				totalDonatCodiOtBan++;
 				break;
 			case '9':
 				totalCodiCiti += parseFloat(impo);
 				document.getElementById("impoCodiCiti").innerHTML = "$"+totalCodiCiti.toFixed(2);
+				document.getElementById("donatCodiCiti").innerHTML = totalDonatCodiciti;
+				totalDonatCodiciti++;
 				break;
 			default:
 				break;
 		}
 	}
+
+	var sumaImportes = parseFloat(totalSucursal.toFixed(2)) + parseFloat(totalCat.toFixed(2)) + parseFloat(totalBnet.toFixed(2)) + parseFloat(totalBoteo.toFixed(2)) + parseFloat(totalAlcancias.toFixed(2)) + parseFloat(totalCodiOtBan.toFixed(2)) + parseFloat(totalCodiCiti.toFixed(2));
+	document.getElementById("totalImportes").innerHTML = "$"+sumaImportes;
+
+	var sumaDonativos = (totalDonatSucursal-1) + (totalDonatCat-1) + (totalDonatBnet-1) + (totalDonatBoteo-1) + (totalDonatAlcancias-1) + (totalDonatCodiOtBan-1) + (totalDonatCodiciti-1);
+	document.getElementById("totalDonativos").innerHTML = sumaDonativos;
 }
 
 function mostrarContenido(resultado) {
