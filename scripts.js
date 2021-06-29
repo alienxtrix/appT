@@ -51,36 +51,36 @@ function leerArchivo(e) {
 function mostrarHome(resultado) {
 	var filas = resultado.split("\n");
 
-	var totalSucursal = 0;
+	var totalSucursal  = 0;
 	var totalCodiOtBan = 0;
-	var totalBnet = 0;
-	var totalCat = 0;
-	var totalBoteo = 0;
+	var totalBnet	   = 0;
+	var totalCat 	   = 0;
+	var totalBoteo 	   = 0;
 	var totalAlcancias = 0;
-	var totalCodiCiti = 0;
+	var totalCodiCiti  = 0;
 
-	var totalDonatSucursal = 1;
-	var totalDonatCat = 1;
-	var totalDonatBnet = 1;
-	var totalDonatBoteo = 1;
+	var totalDonatSucursal  = 1;
+	var totalDonatCat 	    = 1;
+	var totalDonatBnet 		= 1;
+	var totalDonatBoteo 	= 1;
 	var totalDonatAlcancias = 1;
 	var totalDonatCodiOtBan = 1;
-	var totalDonatCodiciti = 1;
+	var totalDonatCodiciti  = 1;
 
 	
-	var totalEfectDonatSucursal = 1;
-	var totalCheqBanDonatSucursal = 1;
+	var totalEfectDonatSucursal 	= 1;
+	var totalCheqBanDonatSucursal 	= 1;
 	var totalCheqOtBanDonatSucursal = 1;
-	var totalTarjCitiDonatSucursal = 1;
+	var totalTarjCitiDonatSucursal  = 1;
 	var totalTarjOtBanDonatSucursal = 1;
-	var totalAmerExpDonatSucursal = 1;
+	var totalAmerExpDonatSucursal 	= 1;
 
-	var totalEfectTotSucursal = 0;
-	var totalCheqBanTotSucursal = 0;
+	var totalEfectTotSucursal 	  = 0;
+	var totalCheqBanTotSucursal   = 0;
 	var totalCheqOtBanTotSucursal = 0;
-	var totalTarjCitiTotSucursal = 0;
+	var totalTarjCitiTotSucursal  = 0;
 	var totalTarjOtBanTotSucursal = 0;
-	var totalAmerExpTotSucursal = 0;
+	var totalAmerExpTotSucursal   = 0;
 
 	for(var i in filas) {
 		var columnas = filas[i].split(",");
