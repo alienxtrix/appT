@@ -1,457 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TELETOMETRO WEB</title>
-  </head>
-  <style>
-    body {
-      font-family: Arial;
-    }
 
-    /* Style the tab */
-    .tab {
-      overflow: hidden;
-      background-color: #056DAE;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TELETOMETRO WEB</title>
+</head>
+<style>
+  body {
+    font-family: Arial;
+  }
 
-    /* Style the buttons inside the tab */
-    .tab button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      color: #DDE2FF;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
-    }
+  /* Style the tab */
+  .tab {
+    overflow: hidden;
+    background-color: #056DAE;
+  }
 
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-      background-color: #078cdf;
-    }
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #DDE2FF;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
 
-    /* Create an active/current tablink class */
-    .tab button.active {
-      background-color: #067cc6;
-    }
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #078cdf;
+  }
 
-    /* Style the tab content */
-    .tabcontent {
-      display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
-    }
-    /* .contentImport{
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #067cc6;
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  /* .contentImport{
         display:flex;
     } */
 
-    .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
-      width: 20%;
-    }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 20%;
+  }
 
-    .card:hover {
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
 
-    .container {
-      padding: 2px 16px;
-    }
+  .container {
+    padding: 2px 16px;
+  }
 
-    .container > p {
-      font-size: 25px;
-    }
+  .container>p {
+    font-size: 25px;
+  }
 
-    .content {
-      display: flex;
-      flex-wrap: wrap;
-    }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .collapsible {
-      background-color: #777;
-      color: white;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-    }
-    /* .container0 {
+  .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  /* .container0 {
       display: flex;
     } */
 
-    .active,
-    .collapsible:hover {
-      background-color: #555;
-    }
-  </style>
+  .active,
+  .collapsible:hover {
+    background-color: #555;
+  }
 
-  <body>
-    <main>
-      <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'cargaArchivo')">
-          Carga de archivos
-        </button>
-        <button class="tablinks" onclick="openTab(event, 'vistaPrincipal')">
-          HOME
-        </button>
-        <button class="tablinks" onclick="openTab(event, 'vistaMedios')">
-            MEDIOS
-          </button>
-      </div>
+  table {
+    display: grid;
+    border-collapse: collapse;
+    min-width: 100%;
+    grid-template-columns:
+      minmax(150px, 1fr) minmax(150px, 1.67fr) minmax(150px, 1.67fr) minmax(150px, 1.67fr) minmax(150px, 1.67fr) minmax(150px, 1.67fr);
+  }
 
-      <div id="cargaArchivo" class="tabcontent">
-        <input type="file" id="file-input" />
-        <h3>Contenido del archivo:</h3>
-        <textarea id="contenido-archivo"></textarea> <br />
+  .item1 {
+  grid-column: 1;
+  text-align: center;
+}
 
-        <h3>Guardar el archivo:</h3>
-        <br />
-        <button onclick="savefile()">Guardar</button>
-      </div>
-      <div class="container0">
-        <div id="vistaPrincipal" class="tabcontent">
-          <div class="contentImport">
-            <button type="button" class="collapsible">Importes</button>
-            <div class="content">
-              <div class="card">
-                <div class="container" id="sucursal">
-                  <h4><b>SUCURSAL</b></h4>
-                  <p id="impoSucursal"></p>
-                </div>
-              </div>
+.item2 {
+  grid-column: 2 / span 2;
+  text-align: center;
+}
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>CAT</b></h4>
-                  <p id="impoCat"></p>
-                </div>
-              </div>
+.item3 {
+  grid-column: 4 / span 2;
+  text-align: center;
+}
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>BNET</b></h4>
-                  <p id="impoBnet"></p>
-                </div>
-              </div>
+.item4 {
+  grid-column: 6 / span 2;;
+  text-align: center;
+}
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>BOTEO</b></h4>
-                  <p id="impoBoteo"></p>
-                </div>
-              </div>
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>ALCANCIAS</b></h4>
-                  <p id="impoAlcancias"></p>
-                </div>
-              </div>
+  th,
+  td {
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+  }
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI OTBAN</b></h4>
-                  <p id="impoCodiOtBan"></p>
-                </div>
-              </div>
+  th {
+    position: sticky;
+    top: 0;
+    background: #6c7ae0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: white;
+  }
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI CITI</b></h4>
-                  <p id="impoCodiCiti"></p>
-                </div>
-              </div>
+  th:last-child {
+    border: 0;
+  }
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI BOTEO</b></h4>
-                  <p id="impoCodiCiti"></p>
-                </div>
-              </div>
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #808080;
+    
+  }
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>PATROCINADORES</b></h4>
-                  <p></p>
-                </div>
-              </div>
+  tr:nth-child(even) td {
+    background: #f8f6ff;
+  }
+</style>
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>TOTAL</b></h4>
-                  <p id="totalImportes"></p>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="collapsible">Donativos</button>
-            <div class="content">
-              <div class="card">
-                <div class="container" id="sucursal">
-                  <h4><b>SUCURSAL</b></h4>
-                  <p id="donatSucursal"></p>
-                </div>
-              </div>
+<body>
+  <main>
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'cargaArchivo')">
+        Carga de archivos
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'vistaPrincipal')">
+        HOME
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'vistaMedios')">
+        MEDIOS
+      </button>
+    </div>
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>CAT</b></h4>
-                  <p id="donatCat"></p>
-                </div>
-              </div>
+    <div id="cargaArchivo" class="tabcontent">
+      <input type="file" id="file-input" />
+      <h3>Contenido del archivo:</h3>
+      <textarea id="contenido-archivo"></textarea> <br />
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>BNET</b></h4>
-                  <p id="donatBnet"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>BOTEO</b></h4>
-                  <p id="donatBoteo"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>ALCANCIAS</b></h4>
-                  <p id="donatAlcancias"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI OTBAN</b></h4>
-                  <p id="donatCodiOtBan"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI CITI</b></h4>
-                  <p id="donatCodiCiti"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI BOTEO</b></h4>
-                  <p id="donatCodiBoteo"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>PATROCINADORES</b></h4>
-                  <p></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>TOTAL</b></h4>
-                  <p id="totalDonativos"></p>
-                </div>
+      <h3>Guardar el archivo:</h3>
+      <br />
+      <button onclick="savefile()">Guardar</button>
+    </div>
+    <div class="container0">
+      <div id="vistaPrincipal" class="tabcontent">
+        <div class="contentImport">
+          <button type="button" class="collapsible">Importes</button>
+          <div class="content">
+            <div class="card">
+              <div class="container" id="sucursal">
+                <h4><b>SUCURSAL</b></h4>
+                <p id="impoSucursal"></p>
               </div>
             </div>
-            <button type="button" class="collapsible">TIPOS</button>
-            <div class="content">
-              <div class="card">
-                <div class="container" id="sucursal">
-                  <h4><b>SUCURSAL</b></h4>
-                  <p id="donatSucursal"></p>
-                </div>
-              </div>
 
-              <div class="card">
-                <div class="container">
-                  <h4><b>CAT</b></h4>
-                  <p id="donatCat"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>BNET</b></h4>
-                  <p id="donatBnet"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>BOTEO</b></h4>
-                  <p id="donatBoteo"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>ALCANCIAS</b></h4>
-                  <p id="donatAlcancias"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI OTBAN</b></h4>
-                  <p id="donatCodiOtBan"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI CITI</b></h4>
-                  <p id="donatCodiCiti"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>CODI BOTEO</b></h4>
-                  <p id="donatCodiBoteo"></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>PATROCINADORES</b></h4>
-                  <p></p>
-                </div>
-              </div>
-
-              <div class="card">
-                <div class="container">
-                  <h4><b>TOTAL</b></h4>
-                  <p id="totalDonativos"></p>
-                </div>
+            <div class="card">
+              <div class="container">
+                <h4><b>CAT</b></h4>
+                <p id="impoCat"></p>
               </div>
             </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>BNET</b></h4>
+                <p id="impoBnet"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>BOTEO</b></h4>
+                <p id="impoBoteo"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>ALCANCIAS</b></h4>
+                <p id="impoAlcancias"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI OTBAN</b></h4>
+                <p id="impoCodiOtBan"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI CITI</b></h4>
+                <p id="impoCodiCiti"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI BOTEO</b></h4>
+                <p id="impoCodiCiti"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>PATROCINADORES</b></h4>
+                <p></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>TOTAL</b></h4>
+                <p id="totalImportes"></p>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="collapsible">Donativos</button>
+          <div class="content">
+            <div class="card">
+              <div class="container" id="sucursal">
+                <h4><b>SUCURSAL</b></h4>
+                <p id="donatSucursal"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CAT</b></h4>
+                <p id="donatCat"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>BNET</b></h4>
+                <p id="donatBnet"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>BOTEO</b></h4>
+                <p id="donatBoteo"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>ALCANCIAS</b></h4>
+                <p id="donatAlcancias"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI OTBAN</b></h4>
+                <p id="donatCodiOtBan"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI CITI</b></h4>
+                <p id="donatCodiCiti"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI BOTEO</b></h4>
+                <p id="donatCodiBoteo"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>PATROCINADORES</b></h4>
+                <p></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>TOTAL</b></h4>
+                <p id="totalDonativos"></p>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="collapsible">Tipos</button>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th class="item1">Tipos</th>
+                  <th class="item2">Sucursales</th>
+                  <th class="item3">CAT</th>
+                  <th class="item4">BANCANET</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th>Donativos</th>
+                  <th>Total</th>
+                  <th>Donativos</th>
+                  <th>Total</th>
+                  <th>Donativos</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Efectivo</td>
+                  <td id="efectDonatSucu"></td>
+                  <td id="efectTotSucu"></td>
+                  <td>lovendale0@w3.org</td>
+                  <td>7850 Old Shore Drive</td>
+                  <td>United Kingdom</td>
+                  <td>University of Plymouth</td>
+                </tr>
+                <tr>
+                  <td>Cheques Banamex</td>
+                  <td id="cheqBanDonatSucu"></td>
+                  <td id="cheqBanTotSucu"></td>
+                  <td>lovendale0@w3.org</td>
+                  <td>7850 Old Shore Drive</td>
+                  <td>United Kingdom</td>
+                  <td>University of Plymouth</td>
+                </tr>
+                <tr>
+                  <td>Cheques/Otros bancos</td>
+                  <td id="cheqOtBanDonatSucu"></td>
+                  <td id="cheqOtBanTotSucu"></td>
+                  <td>itassell1@ow.ly</td>
+                  <td>245 Merchant Circle</td>
+                  <td>Macedonia</td>
+                  <td>South East European University</td>
+                </tr>
+                <tr>
+                  <td>Tarjetas Citibanamex</td>
+                  <td id="tarjCitiDonatSucu"></td>
+                  <td id="tarjCitiTotSucu"></td>
+                  <td>itassell1@ow.ly</td>
+                  <td>245 Merchant Circle</td>
+                  <td>Macedonia</td>
+                  <td>South East European University</td>
+                </tr>
+                <tr>
+                  <td>Tarjetas otros bancos</td>
+                  <td id="tarjOtBanDonatSucu"></td>
+                  <td id="tarjOtBanTotSucu"></td>
+                  <td>itassell1@ow.ly</td>
+                  <td>245 Merchant Circle</td>
+                  <td>Macedonia</td>
+                  <td>South East European University</td>
+                </tr>
+                <tr>
+                  <td>American Express</td>
+                  <td id="AmerExpDonatSucu"></td>
+                  <td id="AmerExpTotSucu"></td>
+                  <td>itassell1@ow.ly</td>
+                  <td>245 Merchant Circle</td>
+                  <td>Macedonia</td>
+                  <td>South East European University</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div id="vistaMedios" class="tabcontent">
-            <div class="contentImport">
-              <button type="button" class="collapsible">Importes</button>
-              <div class="content">
-                <div class="card">
-                  <div class="container" id="sucursal">
-                    <h4><b>SUCURSAL</b></h4>
-                    <p id="impoSucursal"></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>CAT</b></h4>
-                    <p id="impoCat"></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>BNET</b></h4>
-                    <p id="impoBnet"></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>BOTEO</b></h4>
-                    <p id="impoBoteo"></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>ALCANCIAS</b></h4>
-                    <p id="impoAlcancias"></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>CODI OTBAN</b></h4>
-                    <p id="impoCodiOtBan"></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>CODI CITI</b></h4>
-                    <p id="impoCodiCiti"></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>CODI BOTEO</b></h4>
-                    <p id="impoCodiCiti"></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>PATROCINADORES</b></h4>
-                    <p></p>
-                  </div>
-                </div>
-  
-                <div class="card">
-                  <div class="container">
-                    <h4><b>TOTAL</b></h4>
-                    <p></p>
-                  </div>
-                </div>
+      </div>
+      <div id="vistaMedios" class="tabcontent">
+        <div class="contentImport">
+          <button type="button" class="collapsible">Importes</button>
+          <div class="content">
+            <div class="card">
+              <div class="container" id="sucursal">
+                <h4><b>SUCURSAL</b></h4>
+                <p id="impoSucursal"></p>
               </div>
-              
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CAT</b></h4>
+                <p id="impoCat"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>BNET</b></h4>
+                <p id="impoBnet"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>BOTEO</b></h4>
+                <p id="impoBoteo"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>ALCANCIAS</b></h4>
+                <p id="impoAlcancias"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI OTBAN</b></h4>
+                <p id="impoCodiOtBan"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI CITI</b></h4>
+                <p id="impoCodiCiti"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>CODI BOTEO</b></h4>
+                <p id="impoCodiCiti"></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>PATROCINADORES</b></h4>
+                <p></p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="container">
+                <h4><b>TOTAL</b></h4>
+                <p></p>
               </div>
             </div>
           </div>
+
+        </div>
       </div>
-    </main>
-    <script type="text/javascript">
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
+    </div>
+    </div>
+  </main>
+  <script type="text/javascript">
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
 
-          if (content.style.display === "none") {
-            content.style.display = "flex";
-          } else {
-            content.style.display = "none";
-          }
-        });
-      }
-
-      function openTab(evt, description) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
+        if (content.style.display === "none") {
+          content.style.display = "flex";
+        } else {
+          content.style.display = "none";
         }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(description).style.display = "block";
-        evt.currentTarget.className += " active";
-      }
-    </script>
-  </body>
+      });
+    }
 
-  <link rel="stylesheet" href="styles.css" />
-  <script src="scripts.js"></script>
+    function openTab(evt, description) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(description).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+</body>
+
+<link rel="stylesheet" href="styles.css" />
+<script src="scripts.js"></script>
+
 </html>

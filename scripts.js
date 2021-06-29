@@ -39,70 +39,7 @@ function leerArchivo(e) {
 			resultado = resultado + contenido;
 		}
 
-		/*var filas = lector.result.split("\n");
-
-		var totalSucursal = 0;
-		var totalCodiOtBan = 0;
-		var totalBnet = 0;
-		var totalCat = 0;
-		var totalBoteo = 0;
-		var totalAlcancias = 0;
-		var totalCodiCiti = 0;
-
-		for(var i in filas) {
-			var columnas = filas[i].split(",");
-			var medio    = columnas[0].substring(12,13);
-			var importe  = columnas[0].substring(33,45);
-			var impo     = importe.substring(0, 10) + "." + importe.substring(10, importe.length);
-
-			//num = parseFloat(impo).toFixed(2);
-			//num = Number(impo);
-
-			switch (medio) {
-				case '1':
-					console.log(impo);
-					totalSucursal += parseFloat(impo);
-					console.log(totalSucursal);
-					document.getElementById("impoSucursal").innerHTML = "$"+totalSucursal.toFixed(2);
-					break;
-				case '2':
-					totalCat += parseFloat(impo);
-					//console.log(totalCat);
-					document.getElementById("impoCat").innerHTML = "$"+totalCat.toFixed(2);
-					break;
-				case '3':
-					break;
-				case '4':
-					totalBnet += parseFloat(impo);
-					//console.log(totalBnet);
-					document.getElementById("impoBnet").innerHTML = "$"+totalBnet;
-					break;
-				case '5':
-					break;
-				case '6':
-					totalBoteo += parseFloat(impo);
-					//console.log(totalBoteo);
-					document.getElementById("impoBoteo").innerHTML = "$"+totalBoteo.toFixed(2);
-					break;
-				case '7':
-					totalAlcancias += parseFloat(impo);
-					//console.log(totalAlcancias);
-					document.getElementById("impoAlcancias").innerHTML = "$"+totalAlcancias.toFixed(2);
-					break;
-				case '8':
-					totalCodiOtBan += parseFloat(impo);
-					//console.log(totalCodiOtBan);
-					document.getElementById("impoCodiOtBan").innerHTML = "$"+totalCodiOtBan;
-					break;
-				case '9':
-					totalCodiCiti += parseFloat(impo);
-					//console.log(totalCodiCiti);
-					document.getElementById("impoCodiCiti").innerHTML = "$"+totalCodiCiti;
-					break;
-				default:
-					break;
-			}
-		}*/
+		
 
 		mostrarContenido(resultado);
 		mostrarHome(resultado);
@@ -130,11 +67,28 @@ function mostrarHome(resultado) {
 	var totalDonatCodiOtBan = 1;
 	var totalDonatCodiciti = 1;
 
+	
+	var totalEfectDonatSucursal = 1;
+	var totalCheqBanDonatSucursal = 1;
+	var totalCheqOtBanDonatSucursal = 1;
+	var totalTarjCitiDonatSucursal = 1;
+	var totalTarjOtBanDonatSucursal = 1;
+	var totalAmerExpDonatSucursal = 1;
+
+	var totalEfectTotSucursal = 0;
+	var totalCheqBanTotSucursal = 0;
+	var totalCheqOtBanTotSucursal = 0;
+	var totalTarjCitiTotSucursal = 0;
+	var totalTarjOtBanTotSucursal = 0;
+	var totalAmerExpTotSucursal = 0;
+
 	for(var i in filas) {
 		var columnas = filas[i].split(",");
 		var medio    = columnas[0].substring(12,13);
 		var importe  = columnas[0].substring(33,45);
 		var impo     = importe.substring(0, 10) + "." + importe.substring(10, importe.length);
+		var tipo     = columnas[0].substring(13,14);
+	
 
 		switch (medio) {
 			case '1':
@@ -142,6 +96,50 @@ function mostrarHome(resultado) {
 				document.getElementById("impoSucursal").innerHTML = "$"+totalSucursal.toFixed(2);
 				document.getElementById("donatSucursal").innerHTML = totalDonatSucursal;
 				totalDonatSucursal++;
+
+				if(tipo == '1') {
+					document.getElementById("efectDonatSucu").innerHTML = totalEfectDonatSucursal;
+					totalEfectDonatSucursal++;
+
+					totalEfectTotSucursal += parseFloat(impo);
+					document.getElementById("efectTotSucu").innerHTML = "$"+totalEfectTotSucursal.toFixed(2);
+
+				}else if(tipo == '2'){
+					document.getElementById("cheqBanDonatSucu").innerHTML = totalCheqBanDonatSucursal;
+					totalCheqBanDonatSucursal++;
+
+					totalCheqBanTotSucursal += parseFloat(impo);
+					document.getElementById("cheqBanTotSucu").innerHTML = "$"+totalCheqBanTotSucursal.toFixed(2);
+
+				}else if(tipo == '3'){
+					document.getElementById("cheqOtBanDonatSucu").innerHTML = totalCheqOtBanDonatSucursal;
+					totalCheqOtBanDonatSucursal++;
+
+					totalCheqOtBanTotSucursal += parseFloat(impo);
+					document.getElementById("cheqOtBanTotSucu").innerHTML = "$"+totalCheqOtBanTotSucursal.toFixed(2);
+
+				}else if(tipo == '4'){
+					document.getElementById("tarjCitiDonatSucu").innerHTML = totalTarjCitiDonatSucursal;
+					totalTarjCitiDonatSucursal++;
+
+					totalTarjCitiTotSucursal += parseFloat(impo);
+					document.getElementById("tarjCitiTotSucu").innerHTML = "$"+totalTarjCitiTotSucursal.toFixed(2);
+
+				}else if(tipo == '5'){
+					document.getElementById("tarjOtBanDonatSucu").innerHTML = totalTarjOtBanDonatSucursal;
+					totalTarjOtBanDonatSucursal++;
+
+					totalTarjOtBanTotSucursal += parseFloat(impo);
+					document.getElementById("tarjOtBanTotSucu").innerHTML = "$"+totalTarjOtBanTotSucursal.toFixed(2);
+
+				}else if(tipo == '6'){
+					document.getElementById("AmerExpDonatSucu").innerHTML = totalAmerExpDonatSucursal;
+					totalAmerExpDonatSucursal++;
+
+					totalAmerExpTotSucursal += parseFloat(impo);
+					document.getElementById("AmerExpTotSucu").innerHTML = "$"+totalAmerExpTotSucursal.toFixed(2);
+				}
+
 				break;
 			case '2':
 				totalCat += parseFloat(impo);
@@ -186,7 +184,8 @@ function mostrarHome(resultado) {
 			default:
 				break;
 		}
-	}
+
+	}	
 
 	var sumaImportes = parseFloat(totalSucursal.toFixed(2)) + parseFloat(totalCat.toFixed(2)) + parseFloat(totalBnet.toFixed(2)) + parseFloat(totalBoteo.toFixed(2)) + parseFloat(totalAlcancias.toFixed(2)) + parseFloat(totalCodiOtBan.toFixed(2)) + parseFloat(totalCodiCiti.toFixed(2));
 	document.getElementById("totalImportes").innerHTML = "$"+sumaImportes;
