@@ -82,6 +82,17 @@ function mostrarHome(resultado) {
 	var totalTarjOtBanTotSucursal = 0;
 	var totalAmerExpTotSucursal   = 0;
 
+	var totalTarjCitiDonatCat  = 1;
+	var totalTarjOtBanDonatCat = 1;
+	var totalAmerExpDonatCat   = 1;
+
+	var totalTarjCitiTotCat  = 0;
+	var totalTarjOtBanTotCat = 0;
+	var totalAmerExpTotCat   = 0;
+
+	var totalEfectDonatBnet  = 1;
+	var totalEfectTotBnet  = 0;
+
 	for(var i in filas) {
 		var columnas = filas[i].split(",");
 		var medio    = columnas[0].substring(12,13);
@@ -146,6 +157,50 @@ function mostrarHome(resultado) {
 				document.getElementById("impoCat").innerHTML = "$"+totalCat.toFixed(2);
 				document.getElementById("donatCat").innerHTML = totalDonatCat;
 				totalDonatCat++;
+
+				if(tipo == '1') {
+					// document.getElementById("efectDonatSucu").innerHTML = totalEfectDonatSucursal;
+					// totalEfectDonatSucursal++;
+
+					// totalEfectTotSucursal += parseFloat(impo);
+					// document.getElementById("efectTotSucu").innerHTML = "$"+totalEfectTotSucursal.toFixed(2);
+
+				}else if(tipo == '2'){
+					// document.getElementById("cheqBanDonatSucu").innerHTML = totalCheqBanDonatSucursal;
+					// totalCheqBanDonatSucursal++;
+
+					// totalCheqBanTotSucursal += parseFloat(impo);
+					// document.getElementById("cheqBanTotSucu").innerHTML = "$"+totalCheqBanTotSucursal.toFixed(2);
+
+				}else if(tipo == '3'){
+					// document.getElementById("cheqOtBanDonatSucu").innerHTML = totalCheqOtBanDonatSucursal;
+					// totalCheqOtBanDonatSucursal++;
+
+					// totalCheqOtBanTotSucursal += parseFloat(impo);
+					// document.getElementById("cheqOtBanTotSucu").innerHTML = "$"+totalCheqOtBanTotSucursal.toFixed(2);
+
+				}else if(tipo == '4'){
+					document.getElementById("tarjCitiDonatCat").innerHTML = totalTarjCitiDonatCat;
+					totalTarjCitiDonatCat++;
+
+					totalTarjCitiTotCat += parseFloat(impo);
+					document.getElementById("tarjCitiTotSCat").innerHTML = "$"+totalTarjCitiTotCat.toFixed(2);
+
+				}else if(tipo == '5'){
+					document.getElementById("tarjOtBanDonatCat").innerHTML = totalTarjOtBanDonatCat;
+					totalTarjOtBanDonatCat++;
+
+					totalTarjOtBanTotCat += parseFloat(impo);
+					document.getElementById("tarjOtBanTotCat").innerHTML = "$"+totalTarjOtBanTotCat.toFixed(2);
+
+				}else if(tipo == '6'){
+					document.getElementById("AmerExpDonaTCat").innerHTML = totalAmerExpDonatCat;
+					totalAmerExpDonatCat++;
+
+					totalAmerExpTotCat += parseFloat(impo);
+					document.getElementById("AmerExpTotCat").innerHTML = "$"+totalAmerExpTotCat.toFixed(2);
+				}
+
 				break;
 			case '3':
 				break;
@@ -154,6 +209,49 @@ function mostrarHome(resultado) {
 				document.getElementById("impoBnet").innerHTML = "$"+totalBnet.toFixed(2);
 				document.getElementById("donatBnet").innerHTML = totalDonatBnet;
 				totalDonatBnet++;
+
+				if(tipo == '1') {
+					document.getElementById("efectDonatBnet").innerHTML = totalEfectDonatBnet;
+					totalEfectDonatBnet++;
+
+					totalEfectTotBnet += parseFloat(impo);
+					document.getElementById("efectTotBnet").innerHTML = "$"+totalEfectTotBnet.toFixed(2);
+
+				}else if(tipo == '2'){
+					// document.getElementById("cheqBanDonatSucu").innerHTML = totalCheqBanDonatSucursal;
+					// totalCheqBanDonatSucursal++;
+
+					// totalCheqBanTotSucursal += parseFloat(impo);
+					// document.getElementById("cheqBanTotSucu").innerHTML = "$"+totalCheqBanTotSucursal.toFixed(2);
+
+				}else if(tipo == '3'){
+					// document.getElementById("cheqOtBanDonatSucu").innerHTML = totalCheqOtBanDonatSucursal;
+					// totalCheqOtBanDonatSucursal++;
+
+					// totalCheqOtBanTotSucursal += parseFloat(impo);
+					// document.getElementById("cheqOtBanTotSucu").innerHTML = "$"+totalCheqOtBanTotSucursal.toFixed(2);
+
+				}else if(tipo == '4'){
+					// document.getElementById("tarjCitiDonatSucu").innerHTML = totalTarjCitiDonatSucursal;
+					// totalTarjCitiDonatSucursal++;
+
+					// totalTarjCitiTotSucursal += parseFloat(impo);
+					// document.getElementById("tarjCitiTotSucu").innerHTML = "$"+totalTarjCitiTotSucursal.toFixed(2);
+
+				}else if(tipo == '5'){
+					// document.getElementById("tarjOtBanDonatSucu").innerHTML = totalTarjOtBanDonatSucursal;
+					// totalTarjOtBanDonatSucursal++;
+
+					// totalTarjOtBanTotSucursal += parseFloat(impo);
+					// document.getElementById("tarjOtBanTotSucu").innerHTML = "$"+totalTarjOtBanTotSucursal.toFixed(2);
+
+				}else if(tipo == '6'){
+					// document.getElementById("AmerExpDonatSucu").innerHTML = totalAmerExpDonatSucursal;
+					// totalAmerExpDonatSucursal++;
+
+					// totalAmerExpTotSucursal += parseFloat(impo);
+					// document.getElementById("AmerExpTotSucu").innerHTML = "$"+totalAmerExpTotSucursal.toFixed(2);
+				}
 				break;
 			case '5':
 				break;
@@ -188,7 +286,7 @@ function mostrarHome(resultado) {
 	}	
 
 	var sumaImportes = parseFloat(totalSucursal.toFixed(2)) + parseFloat(totalCat.toFixed(2)) + parseFloat(totalBnet.toFixed(2)) + parseFloat(totalBoteo.toFixed(2)) + parseFloat(totalAlcancias.toFixed(2)) + parseFloat(totalCodiOtBan.toFixed(2)) + parseFloat(totalCodiCiti.toFixed(2));
-	document.getElementById("totalImportes").innerHTML = "$"+sumaImportes;
+	document.getElementById("totalImportes").innerHTML = "$"+sumaImportes.toFixed(2);
 
 	var sumaDonativos = (totalDonatSucursal-1) + (totalDonatCat-1) + (totalDonatBnet-1) + (totalDonatBoteo-1) + (totalDonatAlcancias-1) + (totalDonatCodiOtBan-1) + (totalDonatCodiciti-1);
 	document.getElementById("totalDonativos").innerHTML = sumaDonativos;
