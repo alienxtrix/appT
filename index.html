@@ -164,6 +164,23 @@
   tr:nth-child(even) td {
     background: #f8f6ff;
   }
+
+  .mediosContainer{
+   
+	
+  }
+  .mediosTable{
+  
+    width: 100%;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+
+  .mediosBodytable, .mediosThead, .mediosTr{
+  display: table;
+  }
+
 </style>
 
 <body>
@@ -418,78 +435,48 @@
       </div>
       <div id="vistaMedios" class="tabcontent">
         <div class="contentImport">
-          <button type="button" class="collapsible">Importes</button>
-          <div class="content">
-            <div class="card">
-              <div class="container" id="sucursal">
-                <h4><b>SUCURSAL</b></h4>
-                <p id="impoSucursal"></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>CAT</b></h4>
-                <p id="impoCat"></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>BNET</b></h4>
-                <p id="impoBnet"></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>BOTEO</b></h4>
-                <p id="impoBoteo"></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>ALCANCIAS</b></h4>
-                <p id="impoAlcancias"></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>CODI OTBAN</b></h4>
-                <p id="impoCodiOtBan"></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>CODI CITI</b></h4>
-                <p id="impoCodiCiti"></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>CODI BOTEO</b></h4>
-                <p id="impoCodiCiti"></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>PATROCINADORES</b></h4>
-                <p></p>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="container">
-                <h4><b>TOTAL</b></h4>
-                <p></p>
-              </div>
-            </div>
-          </div>
+          <button type="button" class="collapsible">Medios</button>
+          <div class="mediosContainer">
+          <table class="mediosTable">
+            <thead class="mediosThead">
+              <tr class="mediosTr">
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+                <th>Column 6</th>
+                <th>Column 7</th>
+                <th>Column 8</th>
+                <th>Column 9</th>
+                <th>Column 10</th>
+                <th>Column 11</th>
+                <th>Column 12</th>
+                <th>Column 13</th>
+                <th>Column 14</th>
+                <th>Column 15</th>
+              </tr>
+            </thead>
+            <tbody class="mediosBodytable">
+              <tr class="mediosTr">
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         </div>
       </div>
