@@ -43,9 +43,75 @@ function leerArchivo(e) {
 
 		mostrarContenido(resultado);
 		mostrarHome(resultado);
+		mostrarMedios(resultado);
 	};
 
     lector.readAsText(archivo); 
+}
+
+function mostrarMedios(resultado) {
+	var filas = resultado.split("\n");
+
+	var totalDonatSucursal  = 1;
+	var totalDonatCat 	    = 1;
+	var totalDonatBnet 		= 1;
+	var totalDonatBoteo 	= 1;
+	var totalDonatAlcancias = 1;
+	var totalDonatCodiOtBan = 1;
+	var totalDonatCodiciti  = 1;
+
+
+	const tableBody = document.getElementById("tableData");
+	let dataHtml = '';
+
+	for(var i in filas) {
+		var columnas = filas[i].split(",");
+		var medio    = columnas[0].substring(12,13);
+		var importe  = columnas[0].substring(33,45);
+		var impo     = importe.substring(0, 10) + "." + importe.substring(10, importe.length);
+
+		dataHtml += '<tr><td>'+medio+'</td><td>'+impo+'</td></tr>';
+	}	
+
+	console.log(dataHtml);
+
+	tableBody.innerHTML = dataHtml;
+
+
+	/*var tamañoi=10;
+	var tamañoj=10;
+   
+// Get the reference of the body element
+var body = document.getElementsByTagName("body")[0];
+
+// Create a <table> element and a <tbody> element
+var tabla   = document.getElementById("table");
+var tblBody = document.getElementById("tableData");
+
+// Create the cells
+for (var i = 0; i < tamañoi; i++) {
+// Create the rows of the table
+var hilera = document.createElement("tr");
+
+for (var j = 0; j < tamañoj; j++) {
+// Create a <td> element and a text node, make the node
+// text be the content of <td>, place the <td> element at the end
+// of the row of the table
+var celda = document.createElement("td");
+var textoCelda = document.createTextNode("["+i+","+j+"]");
+celda.appendChild(textoCelda);
+hilera.appendChild(celda);
+}
+
+// add the row to the end of the table (at the end of the tblbo elementdy)
+tblBody.appendChild(hilera);
+}
+
+// position the <tbody> under the <table> element
+tabla.appendChild(tblBody);
+// append <table> into <body>
+body.appendChild(tabla);*/
+
 }
 
 function mostrarHome(resultado) {
