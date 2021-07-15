@@ -97,7 +97,7 @@
     background-color: #555;
   }
 
-  table {
+  /* table {
     display: grid;
     border-collapse: collapse;
     min-width: 100%;
@@ -163,7 +163,7 @@
 
   tr:nth-child(even) td {
     background: #f8f6ff;
-  }
+  } */
 
   .mediosContainer{
    
@@ -437,27 +437,29 @@
         <div class="contentImport">
           <button type="button" class="collapsible">Medios</button>
           <div class="mediosContainer">
-          <table class="mediosTable">
+          <table id="tableM" style="width: 100%;">
               <thead>
-                <tr class="mediosTr" id="idMediosTr">
+                <tr id="idMediosTr">
                   <th>Movtos sucursal</th>
                   <th>Importe</th>
                   <th>Movtos CAT 3</th>
                   <th>Importe</th>
                   <th>Movtos Bnet</th>
                   <th>Importe</th>
-                  <th>Movtos Alcancias</th>
-                  <th>Importe</th>
                   <th>Movtos Boteo</th>
                   <th>Importe</th>
-                  <th>Movtos CODI CB</th>
+                  <th>Movtos Alcancias</th>
                   <th>Importe</th>
                   <th>Movtos CODI OB</th>
                   <th>Importe</th>
+                  <th>Movtos CODI CB</th>
+                  <th>Importe</th>
                   <th>Hora</th>
                 </tr>
-              </thead>
-              <tbody id="tableData"></tbody>
+              </thead> 
+              <tbody id="tableData"> 
+               
+              </tbody>
           </table>
         </div>
 
