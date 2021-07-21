@@ -51,6 +51,114 @@ function leerArchivo(e) {
     lector.readAsText(archivo); 
 }
 
+function mostrarSucursales(contenido) {
+	console.log(contenido);
+	var archivos = contenido.split('|');
+	console.log("archivos : ",archivos);
+	for (let index = 0; index < archivos.length; index++) {
+		
+		var filas = archivos[index].split("\n");
+
+	console.log(filas);
+	var totalDonatSucursal  = 1;
+	var totalDonatCat 	    = 1;
+	var totalDonatBnet 		= 1;
+	var totalDonatBoteo 	= 1;
+	var totalDonatAlcancias = 1;
+	var totalDonatCodiOtBan = 1;
+	var totalDonatCodiciti  = 1;
+
+
+	let importes = [8];
+	let medios = [7];
+
+	importes[0]=0;
+	importes[1]=0;
+	importes[2]=0;
+	importes[3]=0;
+	importes[4]=0;
+	importes[5]=0;
+	importes[6]=0;
+
+	medios[0]=0;
+	medios[1]=0;
+	medios[2]=0;
+	medios[3]=0;
+	medios[4]=0;
+	medios[5]=0;
+	medios[6]=0;
+
+	
+
+	const tableBody = document.getElementById("tableData");
+	let dataHtml = '<tr>';
+	for(let i in filas) {
+		var columnas = filas[i].split(",")
+		var hora = columnas[0].substring(8,12);
+		var medio    = columnas[0].substring(12,13);
+		var importe  = columnas[0].substring(33,45);
+		var impo     = importe.substring(0, 10) + "." + importe.substring(10, importe.length);
+		
+		if (hora!=null && hora.trim()!='') {
+			console.log("hora ",hora);
+
+			console.log("importe ",impo);
+			console.log("medio ",medio);
+			switch (medio) {
+				case "1":
+					medios[0] = medios[0]+1;
+					importes[0]=importes[0]+parseFloat(impo);
+					
+					break;
+				case "2":
+					medios[1] = medios[1]+1;
+					importes[1]=importes[1]+parseFloat(impo);
+				
+					break;
+				case "4":
+					medios[2] = medios[2]+1;
+					importes[2]=importes[2]+parseFloat(impo);
+				
+					break;
+				case "6":
+					medios[3] = medios[3]+1;
+					importes[3]=importes[3]+parseFloat(impo);
+				
+					break;
+				case "7":
+					medios[4] = medios[4]+1;
+					importes[4]=importes[4]+parseFloat(impo);
+				
+					break;
+				case "8":
+					medios[5] = medios[5]+1;
+					importes[5]=importes[5]+parseFloat(impo);
+				
+					break;
+			
+				default:
+					medios[6] = medios[6]+1;
+					importes[6]=importes[6]+parseFloat(impo);
+					break;
+			}
+			importes[7]=hora;
+		}
+		
+	}
+	dataHtml += '<td>'+medios[0]+'</td><td>'+parseFloat(importes[0]).toFixed(2)+'</td>';
+	dataHtml += '<td>'+medios[1]+'</td><td>'+parseFloat(importes[1]).toFixed(2)+'</td>';
+	dataHtml += '<td>'+medios[2]+'</td><td>'+parseFloat(importes[2]).toFixed(2)+'</td>';
+	dataHtml += '<td>'+medios[3]+'</td><td>'+parseFloat(importes[3]).toFixed(2)+'</td>';
+	dataHtml += '<td>'+medios[4]+'</td><td>'+parseFloat(importes[4]).toFixed(2)+'</td>';
+	dataHtml += '<td>'+medios[5]+'</td><td>'+parseFloat(importes[5]).toFixed(2)+'</td>';
+	dataHtml += '<td>'+medios[6]+'</td><td>'+parseFloat(importes[6]).toFixed(2)+'</td>';
+	dataHtml += '<td>'+importes[7]+'</td>';
+
+	dataHtml += '</tr>';
+	tableBody.innerHTML = tableBody.innerHTML + dataHtml;
+}}
+
+
 function mostrarMedios(contenido) {
 	console.log(contenido);
 	var archivos = contenido.split('|');
