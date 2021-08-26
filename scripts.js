@@ -18,8 +18,8 @@ function leerArchivo(e) {
       return;
     }
 	fileName = e.target.files[0].name; // leer nombre del archivo a guardar
-	console.log("el nombre del archivo es: ");
-	console.log(fileName);
+	// console.log("el nombre del archivo es: ");
+	// console.log(fileName);
 	tama = guardados.length;//como el for incrementa guardados.length,lo ponemos en tama
 	for (var i=0; i<=tama; i++){//mirar si el nombre del archivo está guardado en el array de guardados
 		if(guardados[i] == fileName){ return; }
@@ -43,7 +43,7 @@ function leerArchivo(e) {
 		mostrarContenido(resultado);
 		mostrarHome(resultado);
 
-		console.log(contenido);
+		// console.log(contenido);
 		//mostrarMedios(resultado);
 		mostrarMedios(contenido);
 		mostrarSucursales(resultado);
@@ -212,7 +212,7 @@ function mostrarSucursales(resultado) {
 
     sucursales.sort();
     sucursales.forEach(function(value, index) {
-		console.log("2staValu",estados[value]);
+		// console.log("2staValu",estados[value]);
 		let estadoString = obtenerEstado(estados[value]);
         var m1 = 0, m2 = 0, m3 = 0, m4 = 0, m5 = 0, m6 = 0, m7 = 0, m8 = 0;
         var v1 = 0, v2 = 0, v3 = 0, v4 = 0, v5 = 0, v6 = 0, v7 = 0, v8 = 0;
@@ -254,14 +254,14 @@ function mostrarSucursales(resultado) {
 
 
 function mostrarMedios(contenido) {
-	console.log(contenido);
+	// console.log(contenido);
 	var archivos = contenido.split('|');
-	console.log("archivos : ",archivos);
+	// console.log("archivos : ",archivos);
 	for (let index = 0; index < archivos.length; index++) {
 		
 		var filas = archivos[index].split("\n");
 
-	console.log(filas);
+	// console.log(filas);
 	var totalDonatSucursal  = 1;
 	var totalDonatCat 	    = 1;
 	var totalDonatBnet 		= 1;
@@ -302,10 +302,10 @@ function mostrarMedios(contenido) {
 		var impo     = importe.substring(0, 10) + "." + importe.substring(10, importe.length);
 		
 		if (hora!=null && hora.trim()!='') {
-			console.log("hora ",hora);
+			// console.log("hora ",hora);
 
-			console.log("importe ",impo);
-			console.log("medio ",medio);
+			// console.log("importe ",impo);
+			// console.log("medio ",medio);
 			switch (medio) {
 				case "1":
 					medios[0] = medios[0]+1;

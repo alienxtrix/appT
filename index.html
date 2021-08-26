@@ -198,6 +198,12 @@
       <button class="tablinks" onclick="openTab(event, 'vistaSucursales')">
         SUCURSALES
       </button>
+      <button class="tablinks" onclick="openTab(event, 'vistaEstados')">
+        ESTADOS
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'vistaMovimientos')">
+        MOVIMIENTOS
+      </button>
     </div>
 
     <div id="cargaArchivo" class="tabcontent">
@@ -497,6 +503,76 @@
                 </tr>
               </thead> 
               <tbody id="tableDataSuc"> 
+               
+              </tbody>
+          </table>
+        </div>
+
+        </div>
+      </div>
+      <div id="vistaEstados" class="tabcontent">
+        <div class="contentImport">
+          <button type="button" class="collapsible">Estados</button>
+          <div class="estadosContainer">
+          <table id="tableM" style="width: 100%;">
+              <thead>
+                <tr id="idEstadosTr">
+                  <th>Estados</th>
+                  <th>Movtos sucursal</th>
+                  <th>Importe</th>
+                  <th>Movtos CAT</th>
+                  <th>Importe</th>
+                  <th>Movtos Bnet</th>
+                  <th>Importe</th>
+                  <th>Movtos Boteo</th>
+                  <th>Importe</th>
+                  <th>Movtos Alcancias</th>
+                  <th>Importe</th>
+                  <!-- <th>Movtos CODI OB</th>
+                  <th>Importe</th>
+                  <th>Movtos CODI CB</th>
+                  <th>Importe</th> -->
+                  <th>Movtos Amex</th>
+                  <th>Importe</th>
+                  <th>Estado</th>
+                </tr>
+              </thead> 
+              <tbody id="tableDataSuc"> 
+               
+              </tbody>
+          </table>
+        </div>
+
+        </div>
+      </div>
+      <div id="vistaMovimientos" class="tabcontent">
+        <div class="contentImport">
+          <button type="button" class="collapsible">Estados</button>
+          <div class="movimientosContainer">
+          <table id="tableM" style="width: 100%;">
+              <thead>
+                <tr id="idMovtosTr">
+                  <th>Movimientos</th>
+                  <th>Movtos sucursal</th>
+                  <th>Importe</th>
+                  <th>Movtos CAT</th>
+                  <th>Importe</th>
+                  <th>Movtos Bnet</th>
+                  <th>Importe</th>
+                  <th>Movtos Boteo</th>
+                  <th>Importe</th>
+                  <th>Movtos Alcancias</th>
+                  <th>Importe</th>
+                  <!-- <th>Movtos CODI OB</th>
+                  <th>Importe</th>
+                  <th>Movtos CODI CB</th>
+                  <th>Importe</th> -->
+                  <th>Movtos Amex</th>
+                  <th>Importe</th>
+                  <th>Estado</th>
+                </tr>
+              </thead> 
+              <tbody id="tableDataMovtos"> 
                
               </tbody>
           </table>
